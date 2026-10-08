@@ -13,7 +13,7 @@ You then mount only `sp-all:`.
 ## Requirements
 
 - Linux with [rclone](https://rclone.org/install/) and FUSE (`fuse3`)
-- Python 3.12+ and [uv](https://docs.astral.sh/uv/) (or any way to install `requests`)
+- Python 3.10+ and [uv](https://docs.astral.sh/uv/) (or any way to install `requests`)
 - An Azure AD app registration with the Microsoft Graph **application** permission `Sites.Read.All` (or `Sites.Selected`), with admin consent granted. App-only authentication cannot use delegated permissions.
 
 ## Setup
