@@ -127,11 +127,6 @@ systemctl --user enable --now sp2rclone
 - If two libraries share the same display name, their remote names stay unique but they show up under the same folder name in `sp-all`, so one shadows the other.
 - `ls` quotes names containing spaces or symbols (`'Fire safety'`). The quotes are not part of the folder name.
 
-## Development
-
-```bash
-uv run ruff check
-```
 
 ## Layout
 
