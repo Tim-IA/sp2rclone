@@ -35,6 +35,19 @@ def resolve_settings_dir(settings_dir):
     )
 
 
+def resolve_output_path(output, settings_path):
+    """Return the rclone.conf path to write; it must already exist and be writable."""
+    if output:
+        path = os.path.expanduser(output)
+    else:
+        path = os.path.join(settings_path, "rclone", "rclone.conf")
+    if not os.path.isfile(path) or not os.access(path, os.R_OK | os.W_OK):
+        raise FileNotFoundError(
+            f"rclone configuration file does not exist or is not readable: {path}"
+        )
+    return path
+
+
 def get_sharepoint_settings(settings_path):
     settings_file = os.path.join(settings_path, "config.ini")
 
