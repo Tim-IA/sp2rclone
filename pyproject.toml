@@ -1,0 +1,14 @@
+[project]
+name = "sp2rclone"
+version = "0.1.0"
+description = "Generate an rclone config that mounts every SharePoint document library on Linux"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.34.2",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.10",
+]
