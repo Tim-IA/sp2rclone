@@ -12,3 +12,13 @@ dependencies = [
 dev = [
     "ruff>=0.16.10",
 ]
+
+[project.scripts]
+sp2rclone = "main:main"
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["main", "api", "settings"]

@@ -18,8 +18,10 @@ You then mount only `sp-all:`.
 
 ## Setup
 
+Install the `sp2rclone` command from the repository root:
+
 ```bash
-uv sync
+uv tool install .
 ```
 
 Create a `config.ini` file in a directory of your choice. All paths in this README are only examples: you choose where `config.ini` lives (`-s`), where the generated `rclone.conf` is written (`-o`, for example `rclone/rclone.conf` or `/etc/rclone/sharepoint.conf`) and where the mount point is. See [Usage](#usage).
@@ -51,7 +53,7 @@ chmod 600 "$RCLONE_CONF"
 ## Usage
 
 ```bash
-uv run python main.py
+sp2rclone
 ```
 
 | Option | Default | Description |
@@ -62,7 +64,7 @@ uv run python main.py
 Example with custom locations:
 
 ```bash
-uv run python main.py -s /path/to/settings-dir -o /path/to/rclone.conf
+sp2rclone -s /path/to/settings-dir -o /path/to/rclone.conf
 ```
 
 The script writes:
@@ -127,11 +129,10 @@ systemctl --user enable --now sp2rclone
 - If two libraries share the same display name, their remote names stay unique but they show up under the same folder name in `sp-all`, so one shadows the other.
 - `ls` quotes names containing spaces or symbols (`'Fire safety'`). The quotes are not part of the folder name.
 
-
 ## Layout
 
 | File | Purpose |
 | --- | --- |
-| `main.py` | Entry point: builds and writes the rclone config |
+| `main.py` | CLI entry point (`sp2rclone` runs `main:main`): builds and writes the rclone config |
 | `api.py` | Microsoft Graph calls (token, site ID, list drives) |
 | `settings.py` | Command-line arguments and `config.ini` loading |
